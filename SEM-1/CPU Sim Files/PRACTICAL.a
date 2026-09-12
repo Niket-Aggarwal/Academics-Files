@@ -1,0 +1,13 @@
+read
+;set the checking condition check-neg or check-zero
+BUN END
+STA num
+LOOP: read
+;set the checking condition check-neg or check-zero
+BUN EXIT
+ADD num
+BUN LOOP
+EXIT: LDA num
+write
+END: stop
+num: .data 2 0

@@ -1,0 +1,30 @@
+{% extends "Main.html" %}
+
+{% block content %}
+<div class="form">
+    <h2>{{ Topic }}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {% if create.errors %}
+        <div class="error-box">
+            <strong>Please fix the following errors:</strong>
+            <ul>
+                {% for field in create %}
+                    {% for error in field.errors %}
+                        <li>{{ field.label }} : {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+
+                {% for error in create.non_field_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        {{ create }}
+        <input type="submit" value="Submit" class="btn">
+    </form>
+</div>
+
+{% endblock %}

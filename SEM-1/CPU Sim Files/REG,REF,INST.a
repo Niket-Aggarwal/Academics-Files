@@ -1,0 +1,4 @@
+read
+;write any register ref. instruction in this line and see the change acc. on regi. side
+write
+stop ;this is Halt

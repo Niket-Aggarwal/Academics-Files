@@ -1,0 +1,58 @@
+h1{
+    color:white;
+    background-color: black;
+    text-align: center;
+    text-decoration: underline;
+    line-height: 50px;
+}
+body{
+    background-color:cornflowerblue;
+}
+button{
+    background-color: aqua;
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+}
+h3{
+    line-height: 50px;
+    color:white;
+    background-color: black;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 30px;
+}
+#one:hover{
+    background-color: green;
+    color:white;
+    border:2px solid black;
+    border-radius: 5px;
+    transition-duration: 2s;
+    cursor:pointer;
+    transform:scale(1.1,1.1);
+    box-shadow: 5px 5px 0 2px black;
+}
+#two:hover{
+    background-color:red;
+    color:white;
+    border:2px solid black;
+    border-radius: 5px;
+    transition-duration: 2s;
+    cursor: pointer;
+    transform:scale(1.1,1.1);
+    box-shadow: 5px 5px 0 2px black;
+}
+.container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+}
+big{
+    color:white;
+    background-color: black;
+    text-transform: capitalize;
+}
+img{
+    border-radius: 50%;
+}

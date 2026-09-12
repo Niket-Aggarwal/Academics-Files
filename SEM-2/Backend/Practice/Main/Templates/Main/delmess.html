@@ -1,0 +1,13 @@
+{% extends "Main.html" %}
+
+{% block content %}
+    <h2>Confirm delete</h2>
+    <p>Are you sure you want to delete {{ obj }} ?</p>
+    <br><br>
+    <a href="{% url 'Rooms' %}"><button>Go Back</button></a>
+    <br><br>
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Confirm" class="con">
+</form>
+{% endblock %}

@@ -1,0 +1,8 @@
+input
+store num
+read
+load num
+add
+write
+stop
+num: .data 2 0

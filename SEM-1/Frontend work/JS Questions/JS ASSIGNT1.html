@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Assignment</title>
+    <link rel="icon" type="image/png" href="JS1 IMG.png">
+    <style>
+        body {
+            background: #eef3ff;
+            padding: 30px;
+        }
+        main {
+            width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 22px;
+            color: #2244cc;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            width: 250px;
+            height: 30px;
+            border-radius: 6px;
+            border: 1px solid #aaa;
+            padding-left: 8px;
+        }
+        button {
+            background: #334dff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #1930cc;
+        }
+        p {
+            background: #f4f4ff;
+            padding: 10px;
+            border-left: 4px solid #334dff;
+            border-radius: 5px;
+            width: 90%;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: #ccc;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <!-- Table show -->
+        <h1>A) Multiplication Table</h1>
+        <label for="Table">Enter The Number to show its table:</label>
+        <br><br>
+        <input type="number" id="num" placeholder="Enter Number">
+        <button onclick="Table()">Show Table</button>
+        <p id="result1"></p>
+        <hr>
+
+        <!-- large number -->
+        <h1>B) Largest of Three Numbers</h1>
+        <label for="Large">Enter num1:</label>
+        <input type="number" id="a" placeholder="Num1">
+        <br><br>
+        <label for="Large">Enter num2:</label>
+        <input type="number" id="a" placeholder="Num2">
+        <br><br>
+        <label for="Large">Enter num3:</label>
+        <input type="number" id="a" placeholder="Num3">
+        <button id="show">Show Largest</button>
+        <p id="result2"></p>
+        <hr>
+
+        <!-- Factorial show -->
+        <h1>C) Factorial</h1>
+        <Label>Enter Number for factorial:</Label>
+        <br><br>
+        <input type="number" id="fact" placeholder="Enter Number">
+        <button id="Factorial">Show Factorial</button>
+        <p id="result3"></p>
+        <hr>
+
+        <!-- Sum and Avg -->
+        <h1>Sum and Average</h1>
+        <label>To sum and average of the positive number , zero to stop , Negative will be ignored</label>
+        <br><br>
+        <button onclick="findSumAvg()" id="adding">Start Taking Numbers</button>
+
+    </main>
+    <script>
+        // Table show
+        function Table() {
+            const num = document.getElementById("num").value;
+            let output = "The Table of " + String(num) + " is:<br><br>";
+            for (let i = 1; i <= 10; i++) {
+                output += String(num) + " x " + String(i) + " = " + String(num * i) + "<br>";
+            }
+            document.getElementById("result1").innerHTML = output;
+        }
+
+        // large number
+        const large = document.querySelector("#result2");
+        btn1 = document.querySelector("#show");
+        btn1.addEventListener("click", () => {
+            x = document.querySelectorAll("#a");
+            let largestNumber = Math.max(x[0].value, x[1].value, x[2].value);
+            large.innerHTML = "Largest number is: " + largestNumber;
+        });
+
+        // Factorial show
+        const btn2 = document.querySelector("#Factorial")
+        btn2.addEventListener("click", () => {
+            let n = Number(document.getElementById("fact").value);
+            const res = document.getElementById("result3");
+            if (n < 0) {
+                res.innerHTML = "Factorial Not Possible";
+            } else {
+                let fact = 1;
+                for (let i = 1; i <= n; i++) {
+                    fact *= i;
+                }
+                res.innerHTML = "Factorial of " + String(n) + " = " + String(fact);
+            }
+        });
+
+        // sum and avg
+        function findSumAvg() {
+            let sum = 0;
+            let count = 0;
+            while (true) {
+                let n = Number(prompt("Enter a positive number (0 to stop):"));
+                if (n === 0) break;
+                if (n > 0) {
+                    sum += n;
+                    count++;
+                }
+            }
+            let avg = count > 0 ? sum / count : 0;
+            let p = document.createElement("p");
+            p.innerHTML = `Sum = ${sum} <br> Average = ${avg}`;
+            add = document.querySelector("#adding");
+            add.after(p);
+        };
+    </script>
+</body>
+</html>

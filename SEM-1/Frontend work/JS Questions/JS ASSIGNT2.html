@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Registration Form</title>
+    <link rel="icon" type="image/png" href="JS2 img.png">
+    <style>
+    body{
+        background: linear-gradient(135deg, #7887db, #4371b6);
+        padding: 20px;
+    }
+    main{
+        background: #caf042;
+        padding: 25px;
+        border-radius: 12px;
+        width: 480px;
+        margin: auto;
+        border: 2px solid #d0d7e3;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+    }
+    h1{
+        text-align: center;
+        color: #003b6f;
+        margin-bottom: 20px;
+    }
+    label{
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+        color: #333;
+    }
+    input,select{
+        width: 90%;
+        padding: 10px;
+        margin-top: 6px;
+        border: 1.5px solid #b0b7c4;
+        border-radius: 6px;
+        background: #f8f9fc;
+    }
+    input:focus,select:focus {
+        border-color: #004aad;
+        box-shadow: 0 0 7px rgba(0,74,173,0.3);
+    }
+    .radiogroup{
+        width:5%;
+    }
+    .checkgroup{
+        width:5%;
+    }
+    button{
+        margin-top: 22px;
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(135deg, #004aad, #006eff);
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    hr {
+        border: none;
+        height: 1px;
+        background: #000000;
+        margin-top: 25px;
+    }
+    .Error{
+        color: red; 
+    }
+</style>
+</head>
+<body>
+    <main>
+        <h1>Student Registration Form</h1>
+        <form onsubmit="return validateForm()">
+            <!-- rollno -->
+            <label>Roll Number</label>
+            <input type="text" id="roll" placeholder="Enter 7-digit roll number" />
+            <br>
+            <span id="rollError" class="Error"></span>
+            <hr>
+            <!-- name -->
+            <label>Name</label>
+            <input type="text" id="name" placeholder="Enter name" />
+            <br>
+            <span id="nameError" class="Error"></span>
+            <hr>
+            <!-- DOB -->
+            <label>DOB</label>
+            <input type="date" id="dob" />
+            <br>
+            <span id="dobError" class="Error"></span>
+            <hr>
+            <!-- Gender -->
+            <label>Gender</label>
+            <label><input type="radio" class="radiogroup" name="gen" value="Male" /> Male</label>
+            <label><input type="radio" class="radiogroup" name="gen" value="Female" /> Female</label>
+            <label><input type="radio" class="radiogroup" name="gen" value="Other" /> Other</label>
+            <br>
+            <span id="genError" class="Error"></span>
+            <hr>
+            <!-- course -->
+            <label>Select Course</label>
+            <select id="course">
+                <option value="">-- Select Course --</option>
+                <option value="BMS">BMS</option>
+                <option value="BBA(FIA)">BBA(FIA)</option>
+                <option value="BSC(H) CS">BSC(H) CS</option>
+                <option value="Other">Other</option>
+            </select>
+            <br>
+            <span id="courseError" class="Error"></span>
+            <hr>
+            <!-- hobby -->
+            <label>Hobbies</label>
+            <label><input type="checkbox" class="checkgroup" value="Sports" id="h1" /> Sports</label>
+            <label><input type="checkbox"  class="checkgroup" value="Music" id="h2" /> Music</label>
+            <label><input type="checkbox" class="checkgroup" value="Reading" id="h3" /> Reading</label>
+            <label><input type="checkbox" class="checkgroup" value="Other" id="h4" /> Other</label>
+            <br>
+            <span id="hobbyError" class="Error"></span>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+    <script>
+        // Important
+        // /..\ to begin and end
+        // ^ start of string
+        // [enter that are alound]
+        // + repeat the same thing
+        // $ to end the expression
+        function validateRoll(){
+            const roll=document.getElementById("roll").value.trim();
+            const err=document.getElementById("rollError");
+            const pattern=/^\d{7}$/;
+            if (!pattern.test(roll)){
+                err.innerHTML="Roll number must be a 7-digit number";
+                return false;
+            }
+            err.innerHTML="";
+            return true;
+        }
+        function validateName(){
+            const name=document.getElementById("name").value.trim();
+            const err=document.getElementById("nameError");
+            const pattern=/^[A-Za-z ]+$/;
+            if (!pattern.test(name)){
+                err.innerHTML="Name must contain only alphabets";
+                return false;
+            }
+            err.innerHTML="";
+            return true;
+        }
+        function validateDOB(){
+            const dob=document.getElementById("dob").value;
+            const err=document.getElementById("dobError");
+            if (dob===""){
+                err.innerHTML="Please select a valid DOB";
+                return false;
+            }
+            const selectedDate=new Date(dob);
+            const today=new Date();
+            today.setHours(0, 0, 0, 0);
+            if (selectedDate>=today){
+                err.innerHTML="DOB cannot be today or a future date";
+                return false;
+            }
+            err.innerHTML="";
+            return true;
+        }
+        function validateGender(){
+            const gender=document.querySelector('input[name="gen"]:checked');
+            const err=document.getElementById("genError");
+            if (!gender){
+                err.innerHTML="Please select gender";
+                return false;
+            }
+            err.innerHTML="";
+            return true;
+        }
+        function validateCourse(){
+            const course=document.getElementById("course").value;
+            const err=document.getElementById("courseError");
+            if (course==="") {
+                err.innerHTML="Please select a course";
+                return false;
+            }
+            err.innerHTML="";
+            return true;
+        }
+        function validateHobbies(){
+            const h1=document.getElementById("h1").checked;
+            const h2=document.getElementById("h2").checked;
+            const h3=document.getElementById("h3").checked;
+            const h4=document.getElementById("h4").checked;
+            const err=document.getElementById("hobbyError");
+            if (!h1 && !h2 && !h3 && !h4) {
+                err.innerHTML="Please select at least one hobby";
+                return false;
+            }
+            err.innerHTML="";
+            return true;
+        }
+        function validateForm(){
+            const r=validateRoll();
+            const n=validateName();
+            const d=validateDOB();
+            const g=validateGender();
+            const c=validateCourse();
+            const h=validateHobbies();
+            return r && n && d && g && c && h;
+        }
+    </script>
+</body>
+</html>

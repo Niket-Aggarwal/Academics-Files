@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIRST WORK 3</title>
+    <link rel="stylesheet" href="further.css">
+</head>
+<body>
+    <header>
+        <h1>Further Details</h1>
+        <hr>
+    </header>
+    <main>
+        <div class="container">
+        <div id="one">
+        <h3>1) Hobby</h3>
+        <ol type="i">
+            <li >BasketBall</li> 
+            <li >Dacing</li>
+            <li >Visiting New Places</li>
+        </ol>
+        </div>
+        <div id="two">
+        <h3>2) Aim</h3>
+        <li>To Get <b><u>Expertise in Cyber Security</u></b> And bulid A most <b><u>Secure Network</u></b></li>
+        </div>
+        </div>
+        <br>
+        <article>Hope you get to know about me so kindly consider me for this job i ensure you that i will be your best decision for your company growth</article>
+        <hr>
+        <h3>Feedback form</h3>
+        <form id="feedbackform" method="post">
+            <label>Feedback:</label>
+            <input type="text" id="review" placeholder="Give your feedback here" required>
+            <label>Review:</label>
+            <select id="option" required>
+                <option value="ok">ok</option>
+                <option value="bad">bad</option>
+                <option value="Excellent">Excellent</option>
+            </select>
+            <br><br>
+            <button type="submit">Submit</button>
+        </form>
+        <hr>
+    </main>
+    <footer>
+        <big>THANK YOU </big>
+        <hr>
+        <a href="academic.html"><button>GO BACK</button></a>
+    </footer>
+    <script>
+        const form = document.getElementById('feedbackform');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = {
+                review: document.getElementById('review').value,
+                option: document.getElementById('option').value
+            };
+            const response = await fetch('http://127.0.0.1:5000/submit', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(formData)
+            });
+            const result = await response.json();
+            alert(result.message);
+        });
+    </script>
+</body>
+</html>

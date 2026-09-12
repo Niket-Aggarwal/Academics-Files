@@ -1,0 +1,70 @@
+{% extends "Main.html" %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+<h2>Home Page</h2>
+<div style="margin-bottom:20px;">
+    <span>Welcome, {{request.user.username}}</span>
+    <a href="{% url 'logout' %}" class="option">Logout</a>
+</div>
+
+<div class="search-container">
+    <input type="text" id="searchBox" name="q" placeholder="Search Room, Topic..." class="search-input">
+</div>
+
+<div id="roomResults" class="room-container">
+    {% for room in rooms %}
+    <div class="room-card">
+        <a href="{% url 'Talk' room.id %}">
+            <h3>{{room.name}}</h3>
+        </a>
+        <p>{{room.description}}</p>
+        <span class="topic">Topic: {{room.topic.name}}</span>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    const searchBox = document.getElementById("searchBox")
+    searchBox.addEventListener("keyup", function () {
+        let query = searchBox.value
+        fetch(`/?q=${query}`)
+            .then(response => response.text())
+            .then(data => {
+                let parser = new DOMParser()
+                let htmlDoc = parser.parseFromString(data, 'text/html')
+                let newResults = htmlDoc.getElementById("roomResults").innerHTML
+                document.getElementById("roomResults").innerHTML = newResults
+            })
+    })
+</script>
+
+{% else %}
+
+<div class="form">
+    <form method="post">
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" placeholder="Enter username" name="user">
+
+        <label>Password:</label>
+        <input type="password" placeholder="Enter Password" name="pass">
+
+        <input type="submit" value="Login" class="con">
+    </form>
+
+    {% if messages %}
+    <div class="error-box">
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
+
+{% endif %}
+
+{% endblock %}

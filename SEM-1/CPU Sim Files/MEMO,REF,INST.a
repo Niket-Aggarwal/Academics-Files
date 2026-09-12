@@ -1,0 +1,40 @@
+;For BSA use seeBSA to show the stored addresS
+;BUN JUMP ON BSA JUMP ON NEXT AND STORE LAST
+;STA and LDA is used in all
+
+;ADD  AND 
+read
+STA NUM1
+read
+AND NUM1
+write
+
+;BUN
+read
+BUN skip1
+write
+
+
+;BSA
+skip1: read
+STA NUM2
+read
+BSA skip2
+skip2: LDA NUM2
+write
+seeBSA skip2
+
+;ISZ
+read
+STA NUM3
+read
+ISZ NUM3
+LDA NUM3
+write
+
+stop
+
+;VARIABLE
+NUM1: .data 2 0
+NUM2: .data 2 0
+NUM3: .data 2 0

@@ -1,0 +1,26 @@
+{% extends "Main.html" %}
+
+{% block content %}
+<a href="{% url 'Insert' %}"><button>Create Room</button></a>
+<br><br>
+<h2>Choose room for discussion</h2>
+{% for content in Data %}
+<div class="room-card">
+    <span>
+        <b>{{ content.id }}</b>. This room is created by
+        <b>{{ content.host.username }}</b>
+    </span>
+    <p>
+        Click here →
+        <a href="{% url 'Talk' content.id %}" class="option">{{ content.name }}</a>
+    </p>
+    <span>
+        Current topic: <b>{{ content.topic.name }}</b>
+    </span>
+    <br><br>
+    <a href="{% url 'Update' content.id %}"><button>Update Room</button></a>
+    <a href="{% url 'Delete' content.id %}"><button>Delete Room</button></a>
+</div>
+{% endfor %}
+
+{% endblock %}
