@@ -5,7 +5,7 @@ Repository containing my **B.Sc. (Hons) Computer Science** academic work practic
 
 | Folder | Description |
 |---|---|
-| `CPU Sim Files` | CPU simulation exercises and assignments |
+| `CPU Sim Files` | CPU simulation exercises and assignments | 
 | `Frontend work` | Basic web development (HTML, CSS, JS) practicals |
 | `MFC` |Maths for Computing practicals |
 | `Python` | Core Python programming practicals |
