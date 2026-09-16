@@ -1,5 +1,5 @@
 # Academics-Files 🎓
-Repository containing my **B.Sc. (Hons) Computer Science** academic work practicals, projects, and coursework, organized semester-wise
+Repository containing my **B.Sc. (Hons) Computer Science** academic work practicals, projects and coursework, organized semester wise
 
 ## 📚 Semester 1 - Contents
 
@@ -73,9 +73,9 @@ python app.py                 # or: python manage.py runserver
 
 ## 📌 Notes
 
-- Each folder contains its own practicals/assignments relevant to that subject.
+- Each folder contains its own practicals/assignments relevant to that subject
 - Feel free to fork this repo
-- This repo only conatin the practical fiel for software follow the intruction of faculty only
+- This repo only conatin the practical file for software follow the intruction of faculty only
 - suggestion: install JRE as it is important for my application
 
-Repository containing my **B.Sc. (Hons) Computer Science** academic work — practicals, projects and coursework, organized semester-wise
+Repository containing my **B.Sc. (Hons) Computer Science** academic work - practicals, projects and coursework, organized semester wise
