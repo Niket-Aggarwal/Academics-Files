@@ -1,7 +1,7 @@
 # Academics-Files 🎓
 Repository containing my **B.Sc. (Hons) Computer Science** academic work practicals, projects, and coursework, organized semester-wise
 
-## 📚 Semester 1 — Contents
+## 📚 Semester 1 - Contents
 
 | Folder | Description |
 |---|---|
@@ -10,7 +10,7 @@ Repository containing my **B.Sc. (Hons) Computer Science** academic work practic
 | `MFC` |Maths for Computing practicals |
 | `Python` | Core Python programming practicals |
 
-## 📚 Semester 2 — Contents
+## 📚 Semester 2 - Contents
 
 | Folder | Description |
 |---|---|
@@ -21,8 +21,8 @@ Repository containing my **B.Sc. (Hons) Computer Science** academic work practic
 
 ## 🚀 How to Access This Repository
 
-1. Go to the repository page on GitHub.
-2. Click the green **Code** button.
+1. Go to the repository page on GitHub
+2. Click the green **Code** button
 3. Choose one of the following:
    - **HTTPS**: copy the link and run
      ```bash
@@ -32,7 +32,7 @@ Repository containing my **B.Sc. (Hons) Computer Science** academic work practic
      ```bash
      git clone git@github.com:<username>/Academics-Files.git
      ```
-   - **Download ZIP**: use this if you just want the files without Git.
+   - **Download ZIP**: use this if you just want the files without Git
 4. Move into the folder:
    ```bash
    cd Academics-Files
@@ -40,9 +40,9 @@ Repository containing my **B.Sc. (Hons) Computer Science** academic work practic
 
 ## 🍴 How to Fork This Repository
 
-1. Open the repository on GitHub.
-2. Click **Fork** (top-right corner).
-3. Select your GitHub account as the destination.
+1. Open the repository on GitHub
+2. Click **Fork** (top-right corner)
+3. Select your GitHub account as the destination
 4. GitHub will create a copy of this repo under your account:
    ```
    https://github.com/<your-username>/Academics-Files
@@ -60,7 +60,7 @@ Once forked, your copy won't auto-update when the original repo changes. To sync
 
 ## ⚙️ Backend — How to Run/Trial It
 
-Navigate to the `SEM-2/Backend` folder and follow these general steps (adjust based on the actual tech stack used inside — e.g., Node.js, Django, Flask):
+Navigate to the `SEM-2/Backend` folder and follow these general steps (adjust based on the actual tech stack used inside - e.g., Node.js, Django, Flask):
 
 ### Python (Flask/Django) backend:
 ```bash
@@ -78,4 +78,4 @@ python app.py                 # or: python manage.py runserver
 - This repo only conatin the practical fiel for software follow the intruction of faculty only
 - suggestion: install JRE as it is important for my application
 
-Repository containing my **B.Sc. (Hons) Computer Science** academic work — practicals, projects, and coursework, organized semester-wise
+Repository containing my **B.Sc. (Hons) Computer Science** academic work — practicals, projects and coursework, organized semester-wise
